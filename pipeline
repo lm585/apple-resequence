@@ -25,7 +25,7 @@
 
  ## pay attention to -q value (instead of 17 for the apple data. because we allowed more mismatches (at least -n 3 
  ## for 90-bp read), we use -q to control false positive mapping)
- samtools mpileup -Q 0 -q 20 -d 1000000 -f ../Malus_x_domestica.v1.0.combined.fa 101.all.bam
+ samtools mpileup -Q 0 -q 20 -d 1000000 -f ../Malus_x_domestica.v1.0.combined.fa 101.all.bam > 101.pileup
 
  reSeqPrintSample.indel.fast.strAssign ../Malus_x_domestica.v1.0.combined.fa 101.1colum 101.pileup 101 2 2 0.3
 
