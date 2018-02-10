@@ -1,0 +1,30 @@
+==> sample-bwa-NM-setting <==
+99   92.39
+123   93.55
+100   94.44
+105   94.44
+102   94.44
+113   94.44
+108   94.44
+101   95.56
+97   95.56
+
+
+$ head   scr-calc-bwa-NM
+awk '
+ {
+  nm = (1-$2/100)*90 + 0.1
+  if(nm < 3)
+  {
+   nm = 3
+  }
+
+
+p=`awk '$1 == "'$samp'" {print $3}' ../sample-bwa-NM-setting-2` ### 99      92.39   6       583
+if [ $p -gt 4 ] # 5 6
+then
+  param="-n $p -o 2 -e 2 "
+else # -n  3 4
+  param="-n $p -o 1 -e 2 "
+fi
+
