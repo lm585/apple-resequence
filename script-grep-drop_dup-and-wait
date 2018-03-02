@@ -1,0 +1,12 @@
+f=0
+while [ $f -ne 99 ] 
+do 
+  ln=`ps auxf | grep drop_dup_both_end.pl | grep fq.gz | wc -l` 
+  if [ $ln -ge 1 ] 
+  then   
+    sleep 60 # wait 
+  else   # go ahead; 
+    f=99
+  fi 
+done
+
