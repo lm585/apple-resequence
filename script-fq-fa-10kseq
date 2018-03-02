@@ -1,0 +1,21 @@
+#
+#
+for id in `head -100  sample-ID    `
+do
+ file=` ls fastq | grep   "$id"_..fq.gz  | head -1 | sed 's/\.gz//' `
+ cp  fastq/$file.gz ./
+ gunzip $file.gz
+awk '
+{
+ if( (NR - 1) % 120000 == 0)
+   print ">" $1;
+ else if( (NR - 2) % 120000 == 0)
+   print $0;
+ else;
+}
+ ' $file | head -2000 > $file.fasta
+ blastall -p blastn -d    Malus-blast  -i  $file.fasta -a 4 -e 1e-15 -F F -S 3 -o out -m 9 
+ grep "# Fields: Query id, Subject id," -A 1   out > out-top-hit
+ grep "^@"  out-top-hit | awk '$7 == 1 && $8 == 90 {print $3}' | sort -n > $file.90bpread.ident
+ rm $file
+done
