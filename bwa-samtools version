@@ -1,0 +1,48 @@
+[linyong@melon LeilaFeiz_2014_07_25]$ bwa
+
+Program: bwa (alignment via Burrows-Wheeler transformation)
+Version: 0.6.2-r126
+Contact: Heng Li <lh3@sanger.ac.uk>
+
+Usage:   bwa <command> [options]
+
+Command: index         index sequences in the FASTA format
+         aln           gapped/ungapped alignment
+         samse         generate alignment (single ended)
+         sampe         generate alignment (paired ended)
+         bwasw         BWA-SW for long queries
+         fastmap       identify super-maximal exact matches
+
+         fa2pac        convert FASTA to PAC format
+         pac2bwt       generate BWT from PAC
+         pac2bwtgen    alternative algorithm for generating BWT
+         bwtupdate     update .bwt to the new format
+         bwt2sa        generate SA from BWT and Occ
+         pac2cspac     convert PAC to color-space PAC
+         stdsw         standard SW/NW alignment
+
+[linyong@melon LeilaFeiz_2014_07_25]$ samtools
+
+Program: samtools (Tools for alignments in the SAM format)
+Version: 0.1.18 (r982:295)
+
+Usage:   samtools <command> [options]
+
+Command: view        SAM<->BAM conversion
+         sort        sort alignment file
+         mpileup     multi-way pileup
+         depth       compute the depth
+         faidx       index/extract FASTA
+         tview       text alignment viewer
+         index       index alignment
+         idxstats    BAM index stats (r595 or later)
+         fixmate     fix mate information
+         flagstat    simple stats
+         calmd       recalculate MD/NM tags and '=' bases
+         merge       merge sorted alignments
+         rmdup       remove PCR duplicates
+         reheader    replace BAM header
+         cat         concatenate BAMs
+         targetcut   cut fosmid regions (for fosmid pool only)
+         phase       phase heterozygotes
+
